@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="timer.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="timer.Perspective"
+            id="Timer.perspective">
+      </perspective>
+   </extension>
+   
+   <!-- 事件扩展 -->
+   <extension
+         point="org.eclipse.ui.commands">
+      <!-- id字段唯一标记该命令，defaultHandler为命令执行的具体的事件的类 -->
+      <command
+            defaultHandler="timer.TimeHandler"
+            id="rcpproject.commands.Time">
+      </command>
+   </extension>
+   
+   <!-- 菜单扩展 -->
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <!-- menu元素的label是显示在菜单栏中的菜单名-->
+         <menu
+               id="timeMenu"
+               label="Alarmer">
+            <!-- command元素中的label为子菜单的名称，icon为子菜单的图标，commandId为点击子菜单时候执行的命令 -->
+            <command
+                  commandId="rcpproject.commands.Time"
+                  icon="icons/alt_window16.gif"
+                  label="MenuTime"
+                  style="push"
+                  tooltip="StartAlarm">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   
+   <!-- 工具栏扩展 -->
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <!-- toolbar扩展会出现在工具栏中 -->
+         <toolbar
+               id="BarTime">
+            <!-- command元素中的commandId为点击工具按钮时执行的命令，icon为工具按钮的图标，label为工具按钮的名称，tooltip为鼠标悬浮提示文字 -->
+            <command
+                  commandId="rcpproject.commands.Time"
+                  style="push"
+                  icon="icons/alt_window16.gif"
+                  tooltip="StartAlarm"
+	              label="BarTime">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
