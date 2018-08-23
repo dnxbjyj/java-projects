@@ -1,0 +1,6 @@
+public class 10_NumberOf1InBinary{
+    public static void main(String argv[]){
+	System.out.println("hello");
+    }
+    
+}
