@@ -13,7 +13,6 @@ public class Test1 {
 		strs.add("amy");
 		strs.add("bit");
 		System.out.println(strs);
-		Arrays.sort(strs, String::compareToIgnoreCase);
 		System.out.println(strs);
 	}
 }
